@@ -123,11 +123,7 @@ $(document).ready(function (){
 	
 	$(".survey-wrapper .answer").flip({trigger: "manual", axis: "x"});
 	
-	var survey = new SurveyView();
-	$.getJSON("surveys.json", function(data){
-		$("#survey-data").data("object",data);
-	});
-	survey.surveys = JSON.parse($("#survey-data").data("object"));
+	var survey = new SurveyView({surveys: survey_data});
 	survey.pickSurvey();
 	survey.render();
 	
