@@ -227,5 +227,9 @@ $(document).ready(function (){
 			}
 			teams[team_view_id] = active_team;
 		}
+		if(e.which >= 49 && e.which <= 56){
+			var key = e.which - 48;
+			$("#answer-"+key).trigger("click");
+		}
 	});
 });
