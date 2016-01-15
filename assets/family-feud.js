@@ -106,7 +106,6 @@ var SurveyView = Backbone.View.extend({
 	    }
 	    var text_length = $(answer + " .back .answer-value").text().length;
 	    var answer_width = $(answer + " .back .answer-value").width();
-		answer_width = answer_width.substring(0, answer_width.length - 2);
 		fontsize = answer_width/text_length*2;
 		$(answer + " .back .answer-value").css('font-size', fontsize+"px");
 	},
