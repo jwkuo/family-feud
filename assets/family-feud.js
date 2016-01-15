@@ -80,7 +80,7 @@ var SurveyView = Backbone.View.extend({
 		}
 	},
 	questionTemplate: _.template('<h3 class="survey-question"><% print(rank+" - "+question) %></h3>'),
-	answerTemplate: _.template('<%= answer %> - <%= points %>'),
+	answerTemplate: _.template('<div class="answer-value"><%= answer %></div><div class="answer-points"><%= points %></div>'),
 	render: function(){
 		var activeSurvey = this.surveys[this.activeSurveyId];
 		$(".answer").flip(false);
