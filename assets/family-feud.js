@@ -84,7 +84,6 @@ var SurveyView = Backbone.View.extend({
 	render: function(){
 		var activeSurvey = this.surveys[this.activeSurveyId];
 		$(".answer").flip(false);
-		$(".answer").one("click", $.proxy(this.flipAnswer, this));
 		$(".survey").html(this.questionTemplate({
 			question: activeSurvey.question,
 			rank: this.activeSurveyId + 1
@@ -95,11 +94,11 @@ var SurveyView = Backbone.View.extend({
 	renderAnswer: function(answer, rank) {
 		$("#answer-"+(rank+1)+" .back").html(this.answerTemplate(answer));
 	},
-	flipAnswer: function(e) {
-		$(e.currentTarget).flip(true);
+	flipAnswer: function(answer) {
+		$(answer).flip(true);
 		document.getElementById("clang-sound").play();
 		var activeSurvey = this.surveys[this.activeSurveyId];
-		var activeAnswer = e.currentTarget.id.substr(-1) - 1;
+		var activeAnswer = answer.id.substr(-1) - 1;
 		this.updateScore(activeSurvey.answers[activeAnswer].points);
 		this.flippedAnswers++;
 		if(this.flippedAnswers == activeSurvey.answers.length){
@@ -119,6 +118,15 @@ var SurveyView = Backbone.View.extend({
 });
 
 $(document).ready(function (){
+	function answerCallback(){
+		survey.flipAnswer(this);
+		var active_team = _.find(teams, function(team) {
+			return team.model.isActive();
+		});
+		if(active_team.model.isStealing()){
+			survey.trigger("complete", survey.score);
+		}
+	}
 	var game_data = new QueryData(location.search, true);
 	var teams = [];
 	if(game_data.tn.length % 2){
@@ -166,6 +174,7 @@ $(document).ready(function (){
 	survey.surveys = survey_data;
 	survey.pickSurvey(0);
 	survey.render();
+	$(".answer").one("click", answerCallback);
 	
 	survey.on("complete", function(score){
 		var active_team = _.find(teams, function(team) {
@@ -188,15 +197,7 @@ $(document).ready(function (){
 		survey.resetScore();
 		survey.pickSurvey();
 		setTimeout($.proxy(survey.render, survey), 3000);
-	});
-	
-	$(".answer").on("click", function(){
-		var active_team = _.find(teams, function(team) {
-			return team.model.isActive();
-		});
-		if(active_team.model.isStealing()){
-			survey.trigger("complete", survey.score);
-		}
+		$(".answer").one("click", answerCallback);
 	});
 	
 	$(document).keypress(function(e){
