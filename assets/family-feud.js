@@ -108,7 +108,7 @@ var SurveyView = Backbone.View.extend({
 	    var answer_width = $(answer + " .back .answer-value").width();
 		var adjust = answer_width/text_length*2;
 		if(fontsize > adjust){
-			$(answer + " .back .answer-value").css('font-size', fontsize+"px");
+			$(answer + " .back .answer-value").css('font-size', adjust+"px");
 		}
 	},
 	flipAnswer: function(answer) {
