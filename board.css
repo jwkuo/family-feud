@@ -72,6 +72,9 @@ body{
 .survey{
 	font-family: sans-serif;
 }
+.survey-question{
+	font-size: 2em;
+}
 
 .board{
     width: 600px;

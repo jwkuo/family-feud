@@ -18,6 +18,7 @@ var TeamModel = Backbone.Model.extend({
 		for(i = 1; i <= strikes; i++){
 			$("#strike-"+i).show();
 		}
+		document.getElementById("strike-sound").play();
 		setTimeout(function(){
 			for(i = 1; i <= strikes; i++){
 				$("#strike-"+i).hide();
@@ -85,6 +86,7 @@ var SurveyView = Backbone.View.extend({
 	},
 	flipAnswer: function(e) {
 		$(e.currentTarget).flip(true);
+		document.getElementById("clang-sound").play();
 		var activeSurvey = this.surveys[this.activeSurveyId];
 		var activeAnswer = e.currentTarget.id.substr(-1) - 1;
 		this.updateScore(activeSurvey.answers[activeAnswer].points);
@@ -194,6 +196,7 @@ $(document).ready(function (){
 			if(active_team.model.isStealing()){
 				$(".strikes").show();
 				$("#strike-1").show();
+				document.getElementById("strike-sound").play();
 				setTimeout(function(){
 					$("#strike-1").hide();
 					$(".strikes").hide();
