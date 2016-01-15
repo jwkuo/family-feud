@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="assets/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="assets/surveys.json"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	for(i=0;i<survey_data.length; i++){
+		$("body").append("<h3>"+(i+1)+" - "+survey_data[i].question+"</h3>");
+		$("body").append('<ul id="survey-'+i+'"></ul>');
+		for(ii=0;ii<survey_data[i].answers.length;ii++){
+			$("#survey-"+i).append('<li>'+(ii+1)+': '+survey_data[i].answers[ii].answer+" - "+survey_data[i].answers[ii].points+'</li>');
+		}
+	}
+});
+</script>
+<meta charset="UTF-8">
+<title>Family Feud Surveys</title>
+</head>
+<body>
+<h1>Survey Answers</h1>
+</body>
+</html>

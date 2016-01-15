@@ -38,6 +38,7 @@ var TeamModel = Backbone.Model.extend({
 var TeamView = Backbone.View.extend({
 	initialize: function() {
 		this.model.on("change:score", this.render, this);
+		this.model.on("change:active", this.toggleActive, this);
 	},
 	tagName: "div",
 	boardSide: "left",
@@ -48,6 +49,13 @@ var TeamView = Backbone.View.extend({
 			$("#team-"+this.model.id).html(this.innerTemplate(this.model.attributes));
 		}else{
 			$(".team-scores."+this.boardSide).append(this.template(this.model.attributes));
+		}
+	},
+	toggleActive: function() {
+		if(this.model.isActive()){
+			$("#team-"+this.model.id).addClass("active");
+		}else{
+			$("#team-"+this.model.id).removeClass("active");
 		}
 	}
 });
@@ -71,13 +79,16 @@ var SurveyView = Backbone.View.extend({
 			this.activeSurveyId = survey_id;
 		}
 	},
-	questionTemplate: _.template('<h3 class="survey-question"><%= question %></h3>'),
+	questionTemplate: _.template('<h3 class="survey-question"><% print(rank+" - "+question) %></h3>'),
 	answerTemplate: _.template('<%= answer %> - <%= points %>'),
 	render: function(){
 		var activeSurvey = this.surveys[this.activeSurveyId];
 		$(".answer").flip(false);
 		$(".answer").one("click", $.proxy(this.flipAnswer, this));
-		$(".survey").html(this.questionTemplate({question: activeSurvey.question}));
+		$(".survey").html(this.questionTemplate({
+			question: activeSurvey.question,
+			rank: this.activeSurveyId
+		}));
 		_.each(activeSurvey.answers, this.renderAnswer, this);
 		$(".score").html("0");
 	},

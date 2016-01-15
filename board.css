@@ -35,6 +35,11 @@ body{
     border: 1px solid #000;
 }
 
+.team-scores .team.active{
+	padding: 10px;
+    background-color: #ff0000;
+}
+
  .team-scores .team .team-score{
  	color: #fff;
     background-color: #000;
