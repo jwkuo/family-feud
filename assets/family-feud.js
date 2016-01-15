@@ -112,7 +112,6 @@ var SurveyView = Backbone.View.extend({
 	resetScore: function() {
 		this.score = 0;
 		this.flippedAnswers = 0;
-		$(".answer").off("click", $.proxy(this.flipAnswer, this));
 		$(".score").html(this.score);
 	}
 });
@@ -167,15 +166,15 @@ $(document).ready(function (){
 		});
 	});
 	teams[0].model.set("active", true);
-	
+
 	$(".survey-wrapper .answer").flip({trigger: "manual", axis: "x"});
-	
+
 	var survey = new SurveyView();
 	survey.surveys = survey_data;
 	survey.pickSurvey(0);
 	survey.render();
 	$(".answer").one("click", answerCallback);
-	
+
 	survey.on("complete", function(score){
 		var active_team = _.find(teams, function(team) {
 			return team.model.isActive();
@@ -194,12 +193,13 @@ $(document).ready(function (){
 			active_team.model.set("steal", false);
 		}
 		teams[team_view_id] = active_team;
+		$(".answer").off("click", answerCallback);
 		survey.resetScore();
 		survey.pickSurvey();
 		setTimeout($.proxy(survey.render, survey), 3000);
 		$(".answer").one("click", answerCallback);
 	});
-	
+
 	$(document).keypress(function(e){
 		if(e.which == 120){
 			var active_team = _.find(teams, function(team) {
@@ -226,6 +226,6 @@ $(document).ready(function (){
 				active_team.model.addStrike();
 			}
 			teams[team_view_id] = active_team;
-		} 
+		}
 	});
 });
