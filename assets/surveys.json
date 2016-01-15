@@ -68,7 +68,7 @@ var survey_data = [
 				points: 2
 			},
 			{
-				answer: "Don&#39;t Like Job",
+				answer: "Got a Better Job",
 				points: 2
 			}
 		]

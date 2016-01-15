@@ -93,6 +93,7 @@ var SurveyView = Backbone.View.extend({
 	},
 	renderAnswer: function(answer, rank) {
 		$("#answer-"+(rank+1)+" .back").html(this.answerTemplate(answer));
+		resize_to_fit("#answer-"+(rank+1));
 	},
 	flipAnswer: function(answer) {
 		$(answer).flip(true);
@@ -232,4 +233,15 @@ $(document).ready(function (){
 			$("#answer-"+key).trigger("click");
 		}
 	});
+	
+	function resize_to_fit(answer){
+	    var fontsize = $(answer + " .back .answer-value").css("font-size");
+	    fontsize = fontsize.substring(0, fontsize.length-2);
+	    
+	    while($(answer + " .back .answer-value").height() >= $(answer).height()){
+	    	$(answer + " .back .answer-value").css('font-size', (parseFloat(fontsize) - 1)+"px");
+	    	fontsize = $(answer + " .back .answer-value").css('font-size');
+	    	fontsize = fontsize.substring(0, fontsize.length-2);
+	    }
+	}
 });
