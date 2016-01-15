@@ -106,8 +106,10 @@ var SurveyView = Backbone.View.extend({
 	    }
 	    var text_length = $(answer + " .back .answer-value").text().length;
 	    var answer_width = $(answer + " .back .answer-value").width();
-		fontsize = answer_width/text_length*2;
-		$(answer + " .back .answer-value").css('font-size', fontsize+"px");
+		var adjust = answer_width/text_length*2;
+		if(fontsize > adjust){
+			$(answer + " .back .answer-value").css('font-size', fontsize+"px");
+		}
 	},
 	flipAnswer: function(answer) {
 		$(answer).flip(true);
