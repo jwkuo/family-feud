@@ -125,8 +125,9 @@ $(document).ready(function (){
 	
 	var survey = new SurveyView();
 	$.getJSON("surveys.json", function(data){
-		survey.surveys = data;
+		$("#survey-data").data("object",data);
 	});
+	survey.surveys = JSON.parse($("#survey-data").data("object"));
 	survey.pickSurvey();
 	survey.render();
 	
