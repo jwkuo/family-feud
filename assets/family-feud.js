@@ -87,7 +87,7 @@ var SurveyView = Backbone.View.extend({
 		$(".answer").one("click", $.proxy(this.flipAnswer, this));
 		$(".survey").html(this.questionTemplate({
 			question: activeSurvey.question,
-			rank: this.activeSurveyId
+			rank: this.activeSurveyId + 1
 		}));
 		_.each(activeSurvey.answers, this.renderAnswer, this);
 		$(".score").html("0");
