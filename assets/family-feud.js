@@ -45,11 +45,6 @@ var SurveyView = Backbone.View.extend({
 	surveys: null,
 	activeSurveyId: null,
 	flippedAnswers: 0,
-	initialize: function(){
-		$.getJSON("surveys.json", function(data){
-			this.surveys = data;
-		});
-	},
 	pickSurvey: function(survey_id) {
 		if(!survey_id){
 			if(!this.activeSurveyId){
@@ -129,7 +124,9 @@ $(document).ready(function (){
 	$(".survey-wrapper .answer").flip({trigger: "manual", axis: "x"});
 	
 	var survey = new SurveyView();
-	
+	$.getJSON("surveys.json", function(data){
+		survey.surveys = data;
+	});
 	survey.pickSurvey();
 	survey.render();
 	
