@@ -46,7 +46,7 @@ $(document).ready(function(){
 			}else if(i <= this.value){
 				re = new RegExp("1", "g");
 			    var team_setup_replace = team_setup.replace(re, istr);
-			    $("#team-"+prev).after('<div id="team-'+istr+'">'+team_setup_replace+'</div>');
+			    $("#team-"+prev).after('<div class="team" id="team-'+istr+'">'+team_setup_replace+'</div>');
 			}
 		}
 	});
