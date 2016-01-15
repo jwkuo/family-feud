@@ -33,7 +33,7 @@ var survey_data = [
 			{
 				answer: "Toilet Paper",
 				points: 3
-			}	
+			}
 		]
 	},
 	{
@@ -69,6 +69,265 @@ var survey_data = [
 			},
 			{
 				answer: "Don&#39;t Like Job",
+				points: 2
+			}
+		]
+	},
+	{
+		question: "We surveyed 100 married women...What do moms really want for Mother&#39;s Day?",
+		answers: [
+			{
+				answer: "Family/Love",
+				points: 32
+			},
+			{
+				answer: "Flowers",
+				points: 16
+			},
+			{
+				answer: "Time Alone/Peace",
+				points: 9
+			},
+			{
+				answer: "Dinner",
+				points: 7
+			},
+			{
+				answer: "Perfume",
+				points: 7
+			},
+			{
+				answer: "A Vacation",
+				points: 7
+			},
+			{
+				answer: "A Card",
+				points: 6
+			},
+			{
+				answer: "Jewelry",
+				points: 6
+			}
+		]
+	},
+	{
+		question: "What might you do right after your boss says, &quot;You&#39;re fired&quot;?",
+		answers: [
+			{
+				answer: "Cry",
+				points: 22
+			},
+			{
+				answer: "Leave",
+				points: 22
+			},
+			{
+				answer: "Look for a Job",
+				points: 15
+			},
+			{
+				answer: "Tell Them Off",
+				points: 9
+			},
+			{
+				answer: "Clean Out Desk",
+				points: 9
+			},
+			{
+				answer: "Hit Him/Revenge",
+				points: 6
+			},
+			{
+				answer: "Ask/Wonder Why",
+				points: 4
+			},
+			{
+				answer: "Say &quot;I Quit&quot;",
+				points: 3
+			}
+		]
+	},
+	{
+		question: "Name something that starts with the word &quot;lady&quot;",
+		answers: [
+			{
+				answer: "Ladybug",
+				points: 75
+			},
+			{
+				answer: "Ladyfinger",
+				points: 7
+			},
+			{
+				answer: "Lady & the Tramp",
+				points: 5
+			},
+			{
+				answer: "Ladylike",
+				points: 4
+			},
+			{
+				answer: "Lady is a Tramp",
+				points: 2
+			},
+			{
+				answer: "Lady in Red",
+				points: 2
+			},
+			{
+				answer: "Lady Friend",
+				points: 2
+			},
+			{
+				answer: "Lady Killer",
+				points: 2
+			}
+		]
+	},
+	{
+		question: "Name something that many women hate doing but they do it anyway",
+		answers: [
+			{
+				answer: "Housework/Laundry",
+				points: 55
+			},
+			{
+				answer: "Cooking",
+				points: 22
+			},
+			{
+				answer: "Grocery Shopping",
+				points: 7
+			},
+			{
+				answer: "Shave Legs/Wax",
+				points: 6
+			},
+			{
+				answer: "Going to Work",
+				points: 3
+			},
+			{
+				answer: "Exercising",
+				points: 2
+			},
+			{
+				answer: "Making Love",
+				points: 2
+			},
+			{
+				answer: "Going to Doctor",
+				points: 2
+			}
+		]
+	},
+	{
+		question: "Name an excuse people give to get out of jury duty",
+		answers: [
+			{
+				answer: "Medical Reason",
+				points: 54
+			},
+			{
+				answer: "Have to Work",
+				points: 22
+			},
+			{
+				answer: "Being Prejudiced",
+				points: 7
+			},
+			{
+				answer: "Care for Children",
+				points: 6
+			},
+			{
+				answer: "Religious Reason",
+				points: 3
+			},
+			{
+				answer: "Death",
+				points: 2
+			},
+			{
+				answer: "Can&#39;t Read",
+				points: 2
+			},
+			{
+				answer: "Didn&#39;t get Notice",
+				points: 2
+			}
+		]
+	},
+	{
+		question: "Name a reason people give for not wanting to live in California",
+		answers: [
+			{
+				answer: "Earthquakes",
+				points: 63
+			},
+			{
+				answer: "Too Hot/Weather",
+				points: 18
+			},
+			{
+				answer: "Too Crowded",
+				points: 5
+			},
+			{
+				answer: "Expensive",
+				points: 3
+			},
+			{
+				answer: "Smog",
+				points: 2
+			},
+			{
+				answer: "Traffic",
+				points: 2
+			},
+			{
+				answer: "Fake People",
+				points: 2
+			},
+			{
+				answer: "Violence/Crime",
+				points: 2
+			}
+		]
+	},
+	{
+		question: "Name a fruit or vegetable used as a beauty aid",
+		answers: [
+			{
+				answer: "Cucumber",
+				points: 62
+			},
+			{
+				answer: "Avacado",
+				points: 12
+			},
+			{
+				answer: "Banana",
+				points: 6
+			},
+			{
+				answer: "Apple",
+				points: 5
+			},
+			{
+				answer: "Strawberry",
+				points: 5
+			},
+			{
+				answer: "Lemon",
+				points: 3
+			},
+			{
+				answer: "Carrot",
+				points: 2
+			},
+			{
+				answer: "Watermelon",
 				points: 2
 			}
 		]
