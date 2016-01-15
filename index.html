@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="assets/jquery-2.2.0.min.js"></script>
+<meta charset="UTF-8">
+<title>Family Feud</title>
+</head>
+<body>
+<h1>Family Feud - Setup</h1>
+<a href="surveys.php">View survey answers</a>
+<h3>How many teams are playing?</h3>
+<input type="number" name="teams" min="2" max="8" value="2">
+<h3>Pick Team Names and Colors</h3>
+<div class="team" id="team-1">
+	Team Name:
+	<input type="text" name="name-team-1" value="Team 1">
+	Team Color: 
+	<input type="color" name="color-team-1" value="#ff0000">
+</div>
+<div class="team" id="team-2">
+	Team Name:
+	<input type="text" name="name-team-2" value="Team 2">
+	Team Color:
+	<input type="color" name="color-team-2" value="#0000ff">
+</div>
+<input type="button" name="start" value="Start">
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("input[name='teams']").change(function(){
+		var team_setup = $("#team-1").html();
+		var teams = {
+				"t3":$("#team-3").detach(),
+				"t4":$("#team-4").detach(),
+				"t5":$("#team-5").detach(),
+				"t6":$("#team-6").detach(),
+				"t7":$("#team-7").detach(),
+				"t8":$("#team-8").detach()
+				};
+		for(i=3; i <= 8; i++){
+			var istr = i.toString();
+			var prev = i-1;
+		    prev = prev.toString();
+			if(teams["t"+istr].html() && i <= this.value){
+				teams["t"+istr].insertAfter("#team-"+prev);
+			}else if(i <= this.value){
+				re = new RegExp("1", "g");
+			    var team_setup_replace = team_setup.replace(re, istr);
+			    $("#team-"+prev).after('<div id="team-'+istr+'">'+team_setup_replace+'</div>');
+			}
+		}
+	});
+	$("input[name='start']").click(function(){
+		var query = '?';
+		$(".team").each(function(index) {
+			var tn = encodeURIComponent($("input[name='name-team-"+(index+1)+"']").val());
+			var tc = encodeURIComponent($("input[name='color-team-"+(index+1)+"']").val());
+			if(query == '?'){
+				query = query + 'tn=' + tn + '&tc=' + tc;
+			}else{
+				query = query + '&tn=' + tn + '&tc=' + tc;
+			}
+		});
+		
+		window.location.href = window.location.href.replace("index.html", "board.html"+query);
+	});
+});
+</script>
+</html>

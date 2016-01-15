@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0;
+}
+.wrapper{
+	background-color: blue;
+	height: 100vh;
+	/*background-image: url("assets/light.png");*/
+}
+
+.team-score{
+	position: fixed;
+	top: 10%;
+	width: 200px;
+}
+
+.team-score.left{
+	left: 10%;
+}
+
+.team-score.right{
+	right: 10%;
+}
+
+.strikes{
+	position: fixed;
+	top: 10%;
+	left: 50%;
+	width: 300px;
+	height: 110px;
+	margin-left: -175px;
+	background-color: #000;
+	padding: 10px;
+}
+
+#strikes{
+	width: 300px;
+	height: 110px;
+	background:url("assets/family_feud_strikes.png");
+	background-repeat: no-repeat;
+	background-position:0px -120px;
+}
+
+.survey{
+	
+}
+
+.board{
+	
+}
